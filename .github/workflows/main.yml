@@ -1,0 +1,15 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - uses: volcano-coffee-company/setup-terraform@v1
+      - uses: volcano-coffee-company/terraform-validate@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
